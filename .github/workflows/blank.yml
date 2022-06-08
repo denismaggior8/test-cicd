@@ -28,6 +28,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+        with:
+          ref: $GITHUB_SHA
 
       # Set the current branch name in the \$\{BRANCH_NAME\} variable
       - uses: nelonoel/branch-name@v1
@@ -53,6 +55,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+        with:
+          ref: $GITHUB_SHA
 
       # Set the current branch name in the \$\{BRANCH_NAME\} variable
       - uses: nelonoel/branch-name@v1
