@@ -29,7 +29,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
         with:
-          ref: ${GITHUB_SHA}
+          ref: ${{ github.sha }}
 
       # Set the current branch name in the \$\{BRANCH_NAME\} variable
       - uses: nelonoel/branch-name@v1
@@ -44,6 +44,7 @@ jobs:
       #    echo Add other actions to build,
       #    echo test, and deploy your project.
   run-to-dev:
+    needs: dryrun-to-dev
     if: github.ref == 'refs/heads/dev'
     environment: "dev-run"
     # The type of runner that the job will run on
@@ -56,7 +57,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
         with:
-          ref: ${GITHUB_SHA}
+          ref: ${{ github.sha }}
 
       # Set the current branch name in the \$\{BRANCH_NAME\} variable
       - uses: nelonoel/branch-name@v1
